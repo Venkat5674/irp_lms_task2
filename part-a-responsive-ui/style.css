@@ -1,27 +1,16 @@
-/* ==========================================================================
-   IRP LMS Platform - Responsive Stylesheet
-   Part A: Frontend CSS Responsiveness
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   Design Tokens / CSS Custom Properties
-   -------------------------------------------------------------------------- */
 :root {
-  --color-primary-navy: #003366;     /* Headings (h1, h2), brand title text, active nav indicator */
-  --color-primary-orange: #FE781E;   /* Hero kicker, CTA button, headline accent, step numbers (1-5) */
-  --color-secondary-blue: #5F9FE0;   /* Sub-headings, secondary visual elements, accents */
-  --color-bg-light: #E2F2FD;         /* Hero section background, soft container highlights */
-  --color-card-bg: #FFFFFF;          /* Main page background, card containers */
-  --color-border-light: #D6E9FF;     /* Step card outlines, subtle divider borders */
+  --color-primary-navy: #003366;
+  --color-primary-orange: #FE781E;
+  --color-secondary-blue: #5F9FE0;
+  --color-bg-light: #E2F2FD;
+  --color-card-bg: #FFFFFF;
+  --color-border-light: #D6E9FF;
 
   --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --max-content-width: 1200px;
   --transition-speed: 0.25s;
 }
 
-/* --------------------------------------------------------------------------
-   CSS Reset & Base Rules
-   -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -55,10 +44,7 @@ a {
   text-decoration: none;
 }
 
-/* --------------------------------------------------------------------------
-   1. Navigation Bar (Top Header & CSS Positioning Requirement)
-   Uses position: sticky; top: 0; with z-index: 1000 to anchor securely
-   -------------------------------------------------------------------------- */
+/* Navigation Bar - Sticky positioning keeps the bar anchored on scroll */
 .navbar {
   position: sticky;
   top: 0;
@@ -80,7 +66,6 @@ a {
   justify-content: space-between;
 }
 
-/* Brand Logo & Cap Icon */
 .brand-logo {
   display: flex;
   align-items: center;
@@ -102,7 +87,6 @@ a {
   letter-spacing: -0.2px;
 }
 
-/* Desktop Navigation Menu */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -128,7 +112,6 @@ a {
   color: var(--color-primary-navy);
 }
 
-/* Active Orange Underline Indicator */
 .nav-link.active {
   color: var(--color-primary-navy);
   font-weight: 700;
@@ -145,7 +128,6 @@ a {
   border-radius: 2px;
 }
 
-/* Outlined Sign In Button */
 .btn-signin {
   display: inline-flex;
   align-items: center;
@@ -168,9 +150,7 @@ a {
   transform: translateY(-1px);
 }
 
-/* --------------------------------------------------------------------------
-   2. Hero Banner Section
-   -------------------------------------------------------------------------- */
+/* Hero Section */
 .hero-section {
   background-color: var(--color-bg-light);
   padding: 56px 24px 64px 24px;
@@ -269,9 +249,7 @@ a {
   filter: drop-shadow(0 10px 20px rgba(0, 51, 102, 0.08));
 }
 
-/* --------------------------------------------------------------------------
-   3. Learning Journey Section
-   -------------------------------------------------------------------------- */
+/* Learning Journey Section - Desktop View (> 1024px): 5-column row */
 .journey-section {
   padding: 72px 24px 84px 24px;
   background-color: var(--color-card-bg);
@@ -300,10 +278,6 @@ a {
   font-size: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   Step Cards Responsive Layout Engine
-   Desktop View (> 1024px): Exact 5-column horizontal row
-   -------------------------------------------------------------------------- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -352,9 +326,7 @@ a {
   line-height: 1.5;
 }
 
-/* --------------------------------------------------------------------------
-   Footer
-   -------------------------------------------------------------------------- */
+/* Footer */
 .footer {
   margin-top: auto;
   border-top: 1px solid var(--color-border-light);
@@ -383,11 +355,7 @@ a {
   color: var(--color-primary-navy);
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Media Queries
-   -------------------------------------------------------------------------- */
-
-/* Tablet View (768px – 1024px): Balanced 2- or 3-column wrapping grid */
+/* Tablet View (768px – 1024px): Balanced wrapping grid */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr 1fr;
@@ -408,16 +376,10 @@ a {
   }
 }
 
-/* Mobile View (≤ 768px):
-   - Desktop nav links collapse/hide
-   - Brand logo on left and Sign In on right retained
-   - Stacked hero banner with proportional illustration
-   - Strict 1-column step cards with number on top-left
-   -------------------------------------------------------------------------- */
+/* Mobile View (≤ 768px): Collapsed nav, stacked hero, 1-column cards */
 @media (max-width: 768px) {
-  /* Navigation Bar Adjustments */
   .nav-menu {
-    display: none; /* Collapse desktop links */
+    display: none;
   }
 
   .nav-container {
@@ -433,7 +395,6 @@ a {
     font-size: 0.85rem;
   }
 
-  /* Hero Section Mobile Stream */
   .hero-section {
     padding: 36px 16px 44px 16px;
   }
@@ -466,7 +427,6 @@ a {
     max-width: 320px;
   }
 
-  /* Learning Journey Mobile View */
   .journey-section {
     padding: 48px 16px 56px 16px;
   }
@@ -480,7 +440,6 @@ a {
     margin-bottom: 32px;
   }
 
-  /* Strict 1-column vertical stack with number distinctly positioned on top-left */
   .cards-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -510,7 +469,6 @@ a {
     font-size: 0.86rem;
   }
 
-  /* Footer Mobile */
   .footer-container {
     flex-direction: column;
     text-align: center;
@@ -518,7 +476,6 @@ a {
   }
 }
 
-/* Extra small mobile adjustments (e.g. 375px / 390px) */
 @media (max-width: 400px) {
   .hero-title {
     font-size: 1.8rem;
