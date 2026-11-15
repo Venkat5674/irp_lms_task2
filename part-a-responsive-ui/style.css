@@ -1,0 +1,530 @@
+/* ==========================================================================
+   IRP LMS Platform - Responsive Stylesheet
+   Part A: Frontend CSS Responsiveness
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Design Tokens / CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  --color-primary-navy: #003366;     /* Headings (h1, h2), brand title text, active nav indicator */
+  --color-primary-orange: #FE781E;   /* Hero kicker, CTA button, headline accent, step numbers (1-5) */
+  --color-secondary-blue: #5F9FE0;   /* Sub-headings, secondary visual elements, accents */
+  --color-bg-light: #E2F2FD;         /* Hero section background, soft container highlights */
+  --color-card-bg: #FFFFFF;          /* Main page background, card containers */
+  --color-border-light: #D6E9FF;     /* Step card outlines, subtle divider borders */
+
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --max-content-width: 1200px;
+  --transition-speed: 0.25s;
+}
+
+/* --------------------------------------------------------------------------
+   CSS Reset & Base Rules
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family-base);
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color: #333333;
+  background-color: var(--color-card-bg);
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   1. Navigation Bar (Top Header & CSS Positioning Requirement)
+   Uses position: sticky; top: 0; with z-index: 1000 to anchor securely
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-card-bg);
+  border-bottom: 1px solid rgba(214, 233, 255, 0.6);
+  box-shadow: 0 2px 10px rgba(0, 51, 102, 0.04);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.nav-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo & Cap Icon */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  letter-spacing: -0.2px;
+}
+
+/* Desktop Navigation Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  position: relative;
+  padding: 6px 2px;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary-navy);
+}
+
+/* Active Orange Underline Indicator */
+.nav-link.active {
+  color: var(--color-primary-navy);
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary-orange);
+  border-radius: 2px;
+}
+
+/* Outlined Sign In Button */
+.btn-signin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+  border: 1.5px solid var(--color-primary-orange);
+  border-radius: 24px;
+  color: var(--color-primary-orange);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: transparent;
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.btn-signin:hover {
+  background-color: var(--color-primary-orange);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(254, 120, 30, 0.25);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero Banner Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  background-color: var(--color-bg-light);
+  padding: 56px 24px 64px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-kicker {
+  color: var(--color-primary-orange);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  color: var(--color-primary-navy);
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.hero-title .highlight-orange {
+  color: var(--color-primary-orange);
+}
+
+.hero-subtitle {
+  color: #4a5568;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.hero-cta-wrapper {
+  margin-top: 12px;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary-orange);
+  color: #ffffff;
+  padding: 13px 26px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(254, 120, 30, 0.3);
+  transition: all var(--transition-speed) ease;
+}
+
+.btn-cta:hover {
+  background-color: #e56610;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(254, 120, 30, 0.38);
+}
+
+.btn-cta .arrow {
+  display: inline-block;
+  transition: transform var(--transition-speed) ease;
+}
+
+.btn-cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-illustration {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 51, 102, 0.08));
+}
+
+/* --------------------------------------------------------------------------
+   3. Learning Journey Section
+   -------------------------------------------------------------------------- */
+.journey-section {
+  padding: 72px 24px 84px 24px;
+  background-color: var(--color-card-bg);
+}
+
+.journey-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  color: var(--color-primary-navy);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Step Cards Responsive Layout Engine
+   Desktop View (> 1024px): Exact 5-column horizontal row
+   -------------------------------------------------------------------------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.step-card {
+  background-color: var(--color-card-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 10px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-secondary-blue);
+  box-shadow: 0 10px 22px rgba(0, 51, 102, 0.08);
+}
+
+.step-badge {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--color-primary-orange);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.step-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: #556987;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border-light);
+  background-color: #f8fafc;
+  padding: 28px 24px;
+}
+
+.footer-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary-navy);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+
+/* Tablet View (768px – 1024px): Balanced 2- or 3-column wrapping grid */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .nav-list {
+    gap: 24px;
+  }
+}
+
+/* Mobile View (≤ 768px):
+   - Desktop nav links collapse/hide
+   - Brand logo on left and Sign In on right retained
+   - Stacked hero banner with proportional illustration
+   - Strict 1-column step cards with number on top-left
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Navigation Bar Adjustments */
+  .nav-menu {
+    display: none; /* Collapse desktop links */
+  }
+
+  .nav-container {
+    padding: 12px 16px;
+  }
+
+  .brand-text {
+    font-size: 1.15rem;
+  }
+
+  .btn-signin {
+    padding: 6px 18px;
+    font-size: 0.85rem;
+  }
+
+  /* Hero Section Mobile Stream */
+  .hero-section {
+    padding: 36px 16px 44px 16px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-kicker {
+    font-size: 0.75rem;
+    letter-spacing: 1.4px;
+  }
+
+  .hero-title {
+    font-size: 2.05rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .hero-illustration {
+    max-width: 320px;
+  }
+
+  /* Learning Journey Mobile View */
+  .journey-section {
+    padding: 48px 16px 56px 16px;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+  }
+
+  /* Strict 1-column vertical stack with number distinctly positioned on top-left */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .step-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 18px;
+    text-align: left;
+  }
+
+  .step-badge {
+    margin-bottom: 0;
+    min-width: 26px;
+    font-size: 2.1rem;
+    line-height: 1;
+  }
+
+  .step-name {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .step-desc {
+    font-size: 0.86rem;
+  }
+
+  /* Footer Mobile */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Extra small mobile adjustments (e.g. 375px / 390px) */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-illustration {
+    max-width: 270px;
+  }
+}
