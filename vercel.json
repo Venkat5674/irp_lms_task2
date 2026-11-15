@@ -5,6 +5,26 @@
       "destination": "/part-a-responsive-ui/index.html"
     },
     {
+      "source": "/index.html",
+      "destination": "/part-a-responsive-ui/index.html"
+    },
+    {
+      "source": "/courses",
+      "destination": "/part-a-responsive-ui/courses.html"
+    },
+    {
+      "source": "/courses.html",
+      "destination": "/part-a-responsive-ui/courses.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/part-a-responsive-ui/contact.html"
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/part-a-responsive-ui/contact.html"
+    },
+    {
       "source": "/style.css",
       "destination": "/part-a-responsive-ui/style.css"
     }

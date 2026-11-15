@@ -1,8 +1,11 @@
-# IRP Web Development Foundations & Core JavaScript Assignment
+# IRP LMS Platform & Core JavaScript Assignment
 
-A comprehensive practical assignment covering:
-- **Part A:** Frontend CSS Responsiveness for the **IRP LMS Home Page** (`part-a-responsive-ui/`)
-- **Part B:** Core JavaScript Bank Account Simulator diagnosing **Types & Coercion**, **Variable Scoping**, **Hoisting & TDZ**, and the **Asynchronous Loop Bug** (`part-b-javascript/`)
+A responsive frontend website recreation and core JavaScript foundations project:
+- **Part A:** Frontend HTML5 & Responsive CSS3 Website Recreation (`part-a-responsive-ui/`)
+  - **Home Page (`index.html`)**: Overview, hero call-to-action banner, and five-step structured learning journey.
+  - **Courses Page (`courses.html`)**: Video tutorial library featuring 9 embedded YouTube course players and an explore bar.
+  - **Contact Us Page (`contact.html`)**: Split two-column support layout with contact information panel and interactive message form.
+- **Part B:** Core JavaScript Bank Account Simulator (`part-b-javascript/bank.js`) diagnosing **Types & Coercion**, **Variable Scoping**, **Hoisting & TDZ**, and the **Asynchronous Loop Bug**.
 
 ---
 
@@ -11,107 +14,80 @@ A comprehensive practical assignment covering:
 ```text
 irp-web-development-assignment/
 ├── part-a-responsive-ui/
-│   ├── index.html       # Semantic HTML5 recreation of IRP LMS Home Page
+│   ├── index.html       # Home Page (Overview, Hero, 5-Step Learning Journey)
+│   ├── courses.html     # Courses Page (9 Video Tutorial Cards & Explore Bar)
+│   ├── contact.html     # Contact Us Page (Contact Details & Message Form)
 │   └── style.css        # Responsive CSS (Flexbox, CSS Grid, Media Queries)
 ├── part-b-javascript/
 │   └── bank.js          # Standalone JavaScript file (Part 1 & Part 2)
-└── README.md            # Setup notes, responsive testing steps, and execution instructions
+├── vercel.json          # Vercel deployment rewrites for root routing
+└── README.md            # Setup notes, testing steps, and execution instructions
 ```
 
 ---
 
-## 🎨 Part A: Frontend CSS Responsiveness (IRP LMS Home Page)
+## 🎨 Part A: Frontend CSS Responsiveness (IRP LMS Website Recreation)
 
-### Overview
-Recreation of the IRP LMS Home Page using **semantic HTML5** and **responsive CSS3** (Flexbox, CSS Grid, and Media Queries). The UI adapts fluidly across screen sizes from large desktop monitors down to compact mobile phones.
+### 1. Home Page (`index.html`)
+- **Sticky Navigation Bar (`position: sticky; top: 0; z-index: 1000;`)**: Anchored securely on scroll. Features logo icon + "IRP LMS", active orange indicator under `Home`, links to `Courses` and `Contact Us`, and outlined `Sign In` button.
+- **Hero Banner**: Category kicker (`LEARN • BUILD • GET PLACED`), headline with orange `"IRP LMS"` accent, subtitle, solid orange `Explore Courses →` CTA linking to `courses.html`, and `Climbing Towards Success` illustration.
+- **Learning Journey (5 Step Cards)**:
+  - 5 sequential cards (`Learn`, `Practice`, `Build Projects`, `Prepare`, `Get Placed`) with `#D6E9FF` borders, `#FFFFFF` fill, rounded corners (`10px`), and prominent orange numerals (`1` to `5`).
+  - **Desktop (> 1024px)**: 5-column horizontal row (`grid-template-columns: repeat(5, 1fr)`).
+  - **Tablet (768px – 1024px)**: Balanced 3-column / 2-column wrapping grid.
+  - **Mobile (≤ 768px)**: Strict 1-column vertical stack with numbers positioned on the top-left.
 
-### Key Implementation Highlights
-1. **Sticky Navigation Bar (`position: sticky; top: 0; z-index: 1000;`)**:
-   - Remains securely anchored at the top of the viewport during scrolling.
-   - **Desktop View (≥ 1024px)**: Displays brand icon + "IRP LMS", full navigation menu (`Home`, `Courses`, `Contact Us`) with an active orange underline indicator on `Home`, and an orange outlined "Sign In" pill button.
-   - **Mobile View (≤ 768px)**: Desktop navigation links collapse/hide (`display: none;`). The top bar maintains brand identity on the left and the touch-friendly outlined "Sign In" button on the right.
-2. **Hero Banner**:
-   - Uses `--color-bg-light` (`#E2F2FD`) background.
-   - Two-column desktop layout transitioning to a centered single-column mobile stream.
-   - Includes orange kicker (`LEARN • BUILD • GET PLACED`), headline with `"IRP LMS"` highlighted in primary orange, descriptive subtitle, and solid orange `Explore Courses →` CTA button.
-   - Responsive vector illustration (`Climbing Towards Success`) scales smoothly without overflowing horizontal viewport bounds.
-3. **Learning Journey (Step Cards)**:
-   - 5 structured step cards with crisp light blue borders (`#D6E9FF`), rounded corners (`10px`), and prominent orange numerals (`1` to `5`).
-   - **Desktop (> 1024px)**: Exact 5-column horizontal row (`grid-template-columns: repeat(5, 1fr)`).
-   - **Tablet (768px – 1024px)**: Balanced 3-column / 2-column wrapping grid.
-   - **Mobile (≤ 768px)**: Strict 1-column vertical stack (`grid-template-columns: 1fr`). Numbers are positioned on the top-left with card text beside it matching design specifications.
+### 2. Courses Page (`courses.html`)
+- **Active Navigation**: `Courses` nav link highlighted with the active orange indicator.
+- **Course Banner**: Category kicker `OUR COURSES`, headline `Learn by Watching Video Tutorials`, and minimalist e-learning laptop illustration.
+- **9 Video Tutorial Cards**:
+  - HTML, CSS, JavaScript, React, Python, Java, Spring Boot, Hibernate, and Django.
+  - Each card contains an embedded YouTube video with a 16:9 aspect ratio container (`aspect-ratio: 16 / 9;`), bold navy course title (`#003366`), and concise two-line description.
+  - **Desktop (> 1024px)**: 3-column grid (`grid-template-columns: repeat(3, 1fr)`).
+  - **Tablet (768px – 1024px)**: 2-column grid (`grid-template-columns: repeat(2, 1fr)`).
+  - **Mobile (≤ 768px)**: 1-column vertical stack.
+- **Explore More Courses Section**: Soft light blue container (`#E2F2FD`) with 9-dot grid icon, descriptive text, and orange `View All Courses →` button.
+
+### 3. Contact Us Page (`contact.html`)
+- **Active Navigation**: `Contact Us` nav link highlighted with the active orange indicator.
+- **Hero Section**: Category kicker `GET IN TOUCH`, headline `Contact Us`, and supportive copy.
+- **Split Two-Column Support Layout**:
+  - **Left Panel (Contact Information)**: Light blue container (`#E2F2FD`) displaying direct communication channels with orange subheadings:
+    - **Email Us**: Clickable `mailto:support@irplms.com`
+    - **Call Us**: Clickable `tel:+919876543210`
+    - **Our Office**: `123, Tech Park, 2nd Floor, Bangalore, Karnataka – 560001`
+  - **Right Panel (Interactive Message Form)**: White card with `#D6E9FF` border:
+    - Heading: `Send Us a Message` with 24-hr response note.
+    - Side-by-side inputs on desktop (stacked on mobile) for `Full Name *` and `Email Address *`.
+    - Dropdown selector for `Subject *`.
+    - Textarea for `Message *` with resize controls.
+    - Full-width solid orange `Send Message` button.
 
 ### Design Tokens
 | Token Name | HEX Code | Purpose |
 | :--- | :--- | :--- |
 | `--color-primary-navy` | `#003366` | Headings (h1, h2), brand title text, active nav indicator |
-| `--color-primary-orange` | `#FE781E` | Hero kicker, CTA button, headline accent, step numbers (1–5) |
+| `--color-primary-orange` | `#FE781E` | Hero kicker, CTA buttons, headline accent, step numbers (1–5) |
 | `--color-secondary-blue` | `#5F9FE0` | Sub-headings, secondary visual elements, accents |
-| `--color-bg-light` | `#E2F2FD` | Hero section background, soft container highlights |
-| `--color-card-bg` | `#FFFFFF` | Main page background, card containers |
-| `--color-border-light` | `#D6E9FF` | Step card outlines, subtle divider borders |
-
-### How to Test Part A
-1. Open `part-a-responsive-ui/index.html` in Google Chrome (or any modern web browser).
-2. **Sticky Header Verification**: Scroll down the page and observe the navigation bar remaining anchored at the top with page content smoothly scrolling beneath it.
-3. **Device Toolbar Testing**:
-   - Press `F12` (or right-click and choose **Inspect**) to open Chrome DevTools.
-   - Click the **Toggle Device Toolbar** icon (`Ctrl + Shift + M`).
-   - **Desktop View (1200px+)**: Check the 5-column step cards layout, visible navigation links with the orange underline under "Home", and 2-column hero layout.
-   - **Tablet View (768px – 1024px)**: Check the balanced wrapping grid for cards.
-   - **Mobile View (375px / 390px)**: Check that navigation links are collapsed, cards stack in a single column with numbers distinctly on the top-left, and there is zero horizontal scroll/overflow.
+| `--color-bg-light` | `#E2F2FD` | Hero container backgrounds, soft page section highlights, explore bar |
+| `--color-card-bg` | `#FFFFFF` | Main document background, card containers, form backgrounds |
+| `--color-border-light` | `#D6E9FF` | Card borders, input outlines, subtle dividers |
 
 ---
 
 ## ⚡ Part B: Core JavaScript (Bank Account Simulator)
 
-### Overview
-A standalone script (`part-b-javascript/bank.js`) executing in strict mode (`"use strict";`) that diagnoses and fixes foundational JavaScript defects involving type coercion, scope, hoisting, and closures.
-
-### Part 1: Types & Coercion (`parseAmount`)
-A robust validator function `parseAmount(input)` that catches and prevents invalid data entry:
-- Rejects `null` and `undefined` with an informative required-field error.
-- Rejects non-string and non-number types.
-- Trims whitespace from string inputs.
-- Guards against empty strings `""` (preventing accidental `Number("") -> 0` coercion).
-- Catches `NaN` values produced by malformed strings (e.g., `"abc"`, `"12.5.3"`).
-- Rejects amounts $\le 0$.
-- Returns verified strictly positive numeric values.
-
-#### Test Cases & Results:
-| Input | Result | Concept Demonstrated |
-| :--- | :--- | :--- |
-| `"500"` | Returns number `500` | Explicit string-to-number conversion |
-| `" 250 "` | Returns number `250` | Whitespace removal prior to conversion |
-| `""` | Throws Error | Guarding against empty-string zero coercion |
-| `"abc"` | Throws Error | Catching non-numeric NaN values |
-| `null` | Throws Error | Preventing null from coercing to 0 |
-| `undefined` | Throws Error | Catching missing or uninitialized values |
-| `"12.5.3"` | Throws Error | Catching malformed decimal strings |
-
-#### Explanatory Notes:
-- **Why `"5" + 2` is `"52"` while `"5" - 2` is `3`**:
-  The binary `+` operator supports string concatenation: if either operand is a string, JavaScript converts the other to a string and concatenates them. In contrast, `-` is strictly an arithmetic operator, forcing JavaScript to coerce the string `"5"` into the number `5` and compute subtraction.
-- **Why `typeof null === "object"`**:
-  This is a historical bug from JavaScript's first 1995 implementation. Values were represented with a 1-to-3 bit type tag in memory where `000` signified an object reference. Since `null` was represented as the NULL pointer (`0x00`), `typeof` read the `000` tag and returned `"object"`. This behavior is retained for backward compatibility.
-
-### Part 2: Scoping, Hoisting & Asynchronous Loops
-1. **`const` vs. `let`**:
-   - `const BANK_NAME = "JS National Bank"` is used because the bank name is an immutable constant that should never be reassigned.
-   - `let transactionCounter = 0` is used because the transaction count is mutable state that increments over time.
-2. **Hoisting & Temporal Dead Zone (TDZ)**:
-   - Accessing a `var` variable before its declaration logs `undefined` because `var` variables are hoisted and initialized to `undefined` in the creation phase.
-   - Accessing a `let` variable before its declaration throws a `ReferenceError` because `let` variables are hoisted but kept in the Temporal Dead Zone until execution reaches their declaration line.
-   - Function declarations (`function announce() {}`) are hoisted in their entirety and can be called before their definition.
-   - Function expressions assigned to `var` (`var notify = function() {}`) hoist the variable as `undefined`, so calling it before definition throws a `TypeError: notify is not a function`.
-3. **Asynchronous Loop Bug**:
-   - **`var` loop**: Because `var` is function-scoped/globally-scoped, a single variable binding is shared across all iterations. When `setTimeout` callbacks run after the loop has finished, they all read the final value: `3, 3, 3`.
-   - **`let` loop**: Because `let` is block-scoped, JavaScript creates a fresh lexical binding and closure for each loop iteration, correctly logging: `0, 1, 2`.
-
-### How to Run Part B
 Run the script using Node.js:
 ```bash
 node part-b-javascript/bank.js
 ```
 
-All test cases and demonstrations will execute cleanly in sequential order without unhandled runtime crashes.
+All test cases and demonstrations execute sequentially with Exit Code 0 and zero unhandled runtime crashes:
+- **Part 1 (Types & Coercion)**: `parseAmount` validates raw inputs, catches `null`/`undefined`, non-string/numbers, empty strings `""`, `NaN`, and negative numbers without directly logging from the function.
+- **Part 2 (Scoping, Hoisting & TDZ)**: Demonstrates `const` vs `let`, `var` hoisting (`undefined`), `let` TDZ (`ReferenceError`), function declaration vs expression (`TypeError`), and the asynchronous event loop closure bug (`3, 3, 3` vs `0, 1, 2`).
+
+---
+
+## 🚀 Vercel Deployment
+
+A `vercel.json` rewrite file is included at the repository root. When deploying to Vercel, requests to `/`, `/courses`, and `/contact` are routed automatically to `part-a-responsive-ui/` without 404 errors.

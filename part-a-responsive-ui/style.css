@@ -326,6 +326,292 @@ a {
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   Courses Page Styles (courses.html)
+   ========================================================================== */
+.courses-section {
+  padding: 64px 24px 80px 24px;
+  background-color: var(--color-card-bg);
+}
+
+.courses-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 56px;
+}
+
+.course-card {
+  background-color: var(--color-card-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.04);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-secondary-blue);
+  box-shadow: 0 12px 24px rgba(0, 51, 102, 0.08);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.course-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.course-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.course-desc {
+  font-size: 0.9rem;
+  color: #556987;
+  line-height: 1.5;
+}
+
+/* Explore More Courses Bar */
+.explore-bar {
+  background-color: var(--color-bg-light);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 12px;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.explore-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.explore-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.explore-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 4px;
+}
+
+.explore-desc {
+  font-size: 0.92rem;
+  color: #556987;
+}
+
+/* ==========================================================================
+   Contact Us Page Styles (contact.html)
+   ========================================================================== */
+.contact-section {
+  padding: 64px 24px 84px 24px;
+  background-color: var(--color-card-bg);
+}
+
+.contact-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.contact-split-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left Panel: Contact Information */
+.contact-info-panel {
+  background-color: var(--color-bg-light);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 12px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-panel-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  letter-spacing: -0.2px;
+}
+
+.contact-panel-desc {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.channel-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.channel-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary-navy);
+  transition: color var(--transition-speed) ease;
+}
+
+.channel-value:hover {
+  color: var(--color-primary-orange);
+}
+
+.channel-address {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* Right Panel: Interactive Message Form Card */
+.contact-form-card {
+  background-color: var(--color-card-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 12px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 14px rgba(0, 51, 102, 0.04);
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary-navy);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border-light);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary-orange);
+  box-shadow: 0 0 0 3px rgba(254, 120, 30, 0.15);
+}
+
+.select-control {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.textarea-control {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: var(--color-primary-orange);
+  color: #ffffff;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.btn-submit:hover {
+  background-color: #e56610;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(254, 120, 30, 0.35);
+}
+
 /* Footer */
 .footer {
   margin-top: auto;
@@ -355,7 +641,11 @@ a {
   color: var(--color-primary-navy);
 }
 
-/* Tablet View (768px – 1024px): Balanced wrapping grid */
+/* ==========================================================================
+   Responsive Media Queries
+   ========================================================================== */
+
+/* Tablet View (768px – 1024px) */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr 1fr;
@@ -371,12 +661,22 @@ a {
     gap: 18px;
   }
 
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .contact-split-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .nav-list {
     gap: 24px;
   }
 }
 
-/* Mobile View (≤ 768px): Collapsed nav, stacked hero, 1-column cards */
+/* Mobile View (≤ 768px) */
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
@@ -467,6 +767,49 @@ a {
 
   .step-desc {
     font-size: 0.86rem;
+  }
+
+  /* Courses Page Mobile */
+  .courses-section {
+    padding: 48px 16px 56px 16px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .explore-bar {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .explore-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  /* Contact Us Page Mobile */
+  .contact-section {
+    padding: 48px 16px 56px 16px;
+  }
+
+  .contact-split-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-info-panel,
+  .contact-form-card {
+    padding: 24px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .footer-container {
